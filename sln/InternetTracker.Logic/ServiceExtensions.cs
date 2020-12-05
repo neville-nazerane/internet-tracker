@@ -17,7 +17,8 @@ namespace InternetTracker.Logic
         {
             services.AddDbContext<AppDbContext>(c => c.UseMySql(ServerVersion.AutoDetect(configuration["sql"])));
             services.AddHttpClient<TotalTrackingService>(c => {
-                c.BaseAddress = new Uri("https://google.com");
+                c.BaseAddress = new Uri(configuration["endpoint"]);
+                c.DefaultRequestHeaders.Add("x-functions-key", configuration["functionAuth"]);
             });
 
             return services;
