@@ -1,10 +1,12 @@
 ﻿using InternetTracker.Core;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace InternetTracker.Logic
@@ -44,7 +46,17 @@ namespace InternetTracker.Logic
             }
         }
 
-        public async Task KillerDelayAsync(TimeSpan time)
+        public async Task<IEnumerable<FailedLog>> GetLogsAsync(DateTime start,
+                                                         DateTime end,
+                                                         CancellationToken cancellationToken = default)
+            => await _context.FailedLogs
+                               .AsNoTracking()
+                               .Where(f => f.TimeStamp >= start && f.TimeStamp <= end)
+                               .OrderBy(f => f.TimeStamp)
+                               .ToListAsync(cancellationToken);
+
+
+        private static async Task KillerDelayAsync(TimeSpan time)
         {
             await Task.Delay(time);
             throw new Exception($"Timed out for {time}");
