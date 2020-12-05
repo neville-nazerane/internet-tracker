@@ -21,13 +21,16 @@ namespace InternetTracker.Logic
             _client = client;
         }
 
-        public async Task VerifyAllAsync()
+        public async Task VerifyAllAsync(TimeSpan? timeout = null)
         {
+            if (timeout is null)
+                timeout = TimeSpan.FromSeconds(8);
+
             DateTime start = DateTime.Now;
             try
             {
                 start = DateTime.Now;
-                await VerifyInternetAsync();
+                await Task.WhenAny(KillerDelayAsync(timeout.Value), VerifyInternetAsync());
             }
             catch (Exception e)
             {
@@ -39,6 +42,12 @@ namespace InternetTracker.Logic
                     TimeStamp = start
                 });
             }
+        }
+
+        public async Task KillerDelayAsync(TimeSpan time)
+        {
+            await Task.Delay(time);
+            throw new Exception($"Timed out for {time}");
         }
 
         public async Task VerifyInternetAsync()
