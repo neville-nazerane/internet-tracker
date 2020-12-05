@@ -1,15 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26124.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InternetTracker.Worker", "InternetTracker.Worker\InternetTracker.Worker.csproj", "{EFEB36D4-2ED1-46AA-87A0-F21FA950E478}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InternetTracker.Worker", "InternetTracker.Worker\InternetTracker.Worker.csproj", "{EFEB36D4-2ED1-46AA-87A0-F21FA950E478}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InternetTracker.WebApp", "InternetTracker.WebApp\InternetTracker.WebApp.csproj", "{AF00FD00-B9CD-4360-BB67-F8D43A5BB97D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InternetTracker.WebApp", "InternetTracker.WebApp\InternetTracker.WebApp.csproj", "{AF00FD00-B9CD-4360-BB67-F8D43A5BB97D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InternetTracker.Logic", "InternetTracker.Logic\InternetTracker.Logic.csproj", "{94B03D69-9337-43C7-9E4D-4B3674D963ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InternetTracker.Logic", "InternetTracker.Logic\InternetTracker.Logic.csproj", "{94B03D69-9337-43C7-9E4D-4B3674D963ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InternetTracker.Core", "InternetTracker.Core\InternetTracker.Core.csproj", "{73A87D03-FE58-4BCE-B355-B025AE29AA4C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InternetTracker.Core", "InternetTracker.Core\InternetTracker.Core.csproj", "{73A87D03-FE58-4BCE-B355-B025AE29AA4C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InternetTracker.Functions", "InternetTracker.Functions\InternetTracker.Functions.csproj", "{AF7FFE8D-99C5-4A55-8497-071CEB9C29BD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,9 +21,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{EFEB36D4-2ED1-46AA-87A0-F21FA950E478}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -72,5 +71,23 @@ Global
 		{73A87D03-FE58-4BCE-B355-B025AE29AA4C}.Release|x64.Build.0 = Release|Any CPU
 		{73A87D03-FE58-4BCE-B355-B025AE29AA4C}.Release|x86.ActiveCfg = Release|Any CPU
 		{73A87D03-FE58-4BCE-B355-B025AE29AA4C}.Release|x86.Build.0 = Release|Any CPU
+		{AF7FFE8D-99C5-4A55-8497-071CEB9C29BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF7FFE8D-99C5-4A55-8497-071CEB9C29BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF7FFE8D-99C5-4A55-8497-071CEB9C29BD}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{AF7FFE8D-99C5-4A55-8497-071CEB9C29BD}.Debug|x64.Build.0 = Debug|Any CPU
+		{AF7FFE8D-99C5-4A55-8497-071CEB9C29BD}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{AF7FFE8D-99C5-4A55-8497-071CEB9C29BD}.Debug|x86.Build.0 = Debug|Any CPU
+		{AF7FFE8D-99C5-4A55-8497-071CEB9C29BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF7FFE8D-99C5-4A55-8497-071CEB9C29BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF7FFE8D-99C5-4A55-8497-071CEB9C29BD}.Release|x64.ActiveCfg = Release|Any CPU
+		{AF7FFE8D-99C5-4A55-8497-071CEB9C29BD}.Release|x64.Build.0 = Release|Any CPU
+		{AF7FFE8D-99C5-4A55-8497-071CEB9C29BD}.Release|x86.ActiveCfg = Release|Any CPU
+		{AF7FFE8D-99C5-4A55-8497-071CEB9C29BD}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {364A4E35-DE8A-4841-B5D1-79AAFFFB730B}
 	EndGlobalSection
 EndGlobal
