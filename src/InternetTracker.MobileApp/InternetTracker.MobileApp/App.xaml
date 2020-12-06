@@ -4,5 +4,9 @@
              x:Class="InternetTracker.MobileApp.App">
     <Application.Resources>
 
+        <Style TargetType="Button">
+            <Setter Property="Visual" Value="Material" />
+        </Style>
+        
     </Application.Resources>
 </Application>
