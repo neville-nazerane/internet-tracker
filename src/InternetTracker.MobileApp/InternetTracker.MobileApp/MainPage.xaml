@@ -1,24 +1,80 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:m="clr-namespace:InternetTracker.Core;assembly=InternetTracker.Core"
+             xmlns:vm="clr-namespace:InternetTracker.MobileApp.ViewModels"
+             xmlns:control="clr-namespace:InternetTracker.MobileApp.Controls"
+             x:DataType="vm:MainViewModel"
              x:Class="InternetTracker.MobileApp.MainPage">
 
-    <StackLayout>
-        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
-            <Label Text="Welcome to Xamarin.Forms!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
-        </Frame>
-        <Label Text="Start developing now" FontSize="Title" Padding="30,10,30,10"/>
-        <Label Text="Make changes to your XAML file and save to see your UI update in the running app with XAML Hot Reload. Give it a try!" FontSize="16" Padding="30,0,30,0"/>
-        <Label FontSize="16" Padding="30,24,30,0">
-            <Label.FormattedText>
-                <FormattedString>
-                    <FormattedString.Spans>
-                        <Span Text="Learn more at "/>
-                        <Span Text="https://aka.ms/xamarin-quickstart" FontAttributes="Bold"/>
-                    </FormattedString.Spans>
-                </FormattedString>
-            </Label.FormattedText>
-        </Label>
-    </StackLayout>
+    <ContentPage.Resources>
+
+        <control:ToLocalConverter x:Key="localConverter" />
+        <control:InverseBoolConverter x:Key="inverseBoolConverter" />
+
+    </ContentPage.Resources>
+    
+    <Grid>
+
+        <!--#region Buttons -->
+        
+        <Label Text="Start" />
+        <DatePicker Date="{Binding Start}" 
+                    Grid.Row="1" />
+
+        <Label Text="End" 
+               Grid.Column="1" />
+        <DatePicker Date="{Binding End}" 
+                    Grid.Row="1" Grid.Column="1" />
+
+        <Button Text="Submit"
+                BackgroundColor="GreenYellow"
+                Grid.Row="1" Grid.Column="2"  />
+        
+        <!--#endregion-->
+
+        <ActivityIndicator IsVisible="{Binding LoadControl.IsLoading}"
+                           IsRunning="True"
+                           IsEnabled="True" 
+                           Grid.Row="2" />
+
+        <CollectionView ItemsSource="{Binding Logs}"
+                        Grid.Row="2"
+                        IsVisible="{Binding Loadcontrol.IsLoading, 
+                                            Converter={StaticResource inverseBoolConverter}}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="m:FailedLog">
+                    <Frame>
+                        <Grid>
+                            <Label>
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <FormattedString.Spans>
+                                            <Span Text="Time: "
+                                                  FontAttributes="Bold" />
+                                            <Span Text="{Binding TimeStamp, Converter={StaticResource localConverter}}" />
+                                        </FormattedString.Spans>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+
+                            <Label Grid.Row="1">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <FormattedString.Spans>
+                                            <Span Text="Elapsed: "
+                                                  FontAttributes="Bold" />
+                                            <Span Text="{Binding Elapsed}" />
+                                        </FormattedString.Spans>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </Grid>
 
 </ContentPage>
