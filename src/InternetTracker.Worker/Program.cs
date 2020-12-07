@@ -19,6 +19,7 @@ namespace InternetTracker.Worker
             Host.CreateDefaultBuilder(args)
                 .ConfigureServices((hostContext, services) =>
                 {
+                    services.AddApplicationInsightsTelemetryWorkerService(hostContext.Configuration["worker_insights"])
                     services.AddLogic(hostContext.Configuration);
                     services.AddHostedService<Worker>();
                 });

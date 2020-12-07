@@ -23,6 +23,7 @@ namespace InternetTracker.WebApp
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddApplicationInsightsTelemetry(Configuration["web_insights"]);
             services.AddLogic(Configuration);
         }
 
@@ -38,10 +39,8 @@ namespace InternetTracker.WebApp
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/", async context =>
-                {
-                    await context.Response.WriteAsync("Hello World!");
-                });
+                endpoints.MapGet("/", context => context.Response.WriteAsync("Hello from internet tracker"));
+                endpoints.MapAllEndpoints();
             });
         }
     }
