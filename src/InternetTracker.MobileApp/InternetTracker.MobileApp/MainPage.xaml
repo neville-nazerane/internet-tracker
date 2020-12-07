@@ -14,7 +14,7 @@
 
     </ContentPage.Resources>
     
-    <Grid>
+    <Grid RowDefinitions="40, 50, *">
 
         <!--#region Buttons -->
         
