@@ -49,20 +49,10 @@ stages:
                         static Config()
                         {
                             Endpoint = "http://192.168.0.140:5020";
-                            AppCenter = "android=6088e931-ccf5-4203-a0a3-925d8ecf9498;";
+                            AppCenter = "$(secrets.appCenter)";
                         }
                     }
                 }
-
-
-          - task: NuGetToolInstaller@1
-
-          
-          - task: NuGetCommand@2
-            inputs:
-              command: 'restore'
-              restoreSolution: '$(solutionPath)'
-              feedsToUse: 'config'
           
           - task: android-manifest-version@1
             inputs:
