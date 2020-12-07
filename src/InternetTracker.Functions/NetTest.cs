@@ -15,7 +15,7 @@ namespace InternetTracker.Functions
 
         [FunctionName("nettest")]
         public static IActionResult Run(
-                            [HttpTrigger(AuthorizationLevel.Function, "get", Route = null)] HttpRequest _,
+                            [HttpTrigger(AuthorizationLevel.Function, "get", Route = null)] HttpRequest req,
                             ILogger log)
         {
             log.LogInformation("C# HTTP trigger function processed a request.");
