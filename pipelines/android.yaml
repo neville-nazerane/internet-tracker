@@ -25,7 +25,6 @@ variables:
   # keystore.password
   # key.password
 
-
 stages:
   - stage: Build
     displayName: Build App
