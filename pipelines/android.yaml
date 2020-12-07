@@ -17,8 +17,9 @@ variables:
   solutionPath: internet tracker.sln
   projectPath: src/InternetTracker.MobileApp/InternetTracker.MobileApp.Android
   configPath: src/InternetTracker.MobileApp/InternetTracker.MobileApp/Config.nogit.cs
+  configNameSpace: InternetTracker.MobileApp
   artifactName: publishedApk
-  appCenterSlug: live.neville-live.com/internet-tracker
+  appCenterSlug: live.neville-live.com/Internet-Tracker
   keyStoreFile: internet.jks
 
 # to be defined as secrets:
@@ -41,14 +42,14 @@ stages:
               filepath: $(configPath)
               fileoverwrite: true
               filecontent: |
-                namespace SmartHub.MobileApp
+                namespace $(configNameSpace)
                 {
                     static partial class Config
                     {
                         static Config()
                         {
-                            Endpoint = "$(secrets.endpoint)";
-                            AppCenter = "$(secrets.appCenter)";
+                            Endpoint = "http://192.168.0.140:5020";
+                            AppCenter = "android=6088e931-ccf5-4203-a0a3-925d8ecf9498;";
                         }
                     }
                 }

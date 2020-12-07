@@ -13,6 +13,10 @@
 
   <ItemGroup>
 
+    <PackageReference Include="Microsoft.AppCenter.Analytics" Version="4.0.0" />
+
+    <PackageReference Include="Microsoft.AppCenter.Crashes" Version="4.0.0" />
+
     <PackageReference Include="System.Net.Http.Json" Version="5.0.0" />
     <PackageReference Include="Xamarin.FluentInjector" Version="0.0.719-beta" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.1709-pre4" />
