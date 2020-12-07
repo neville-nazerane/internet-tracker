@@ -53,6 +53,14 @@ stages:
                         }
                     }
                 }
+
+
+          - task: NuGetToolInstaller@1
+
+          
+          - task: NuGetCommand@2
+            inputs:
+              command: 'restore'
           
           - task: android-manifest-version@1
             inputs:
