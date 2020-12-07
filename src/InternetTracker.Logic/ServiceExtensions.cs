@@ -15,7 +15,7 @@ namespace InternetTracker.Logic
         public static IServiceCollection AddLogic(this IServiceCollection services,
                                                   IConfiguration configuration)
         {
-            services.AddDbContext<AppDbContext>(c => c.UseMySql(ServerVersion.AutoDetect(configuration["sql"])));
+            services.AddDbContext<AppDbContext>(c => c.UseMySql(configuration["sql"], ServerVersion.AutoDetect(configuration["sql"])));
             services.AddHttpClient<TotalTrackingService>(c => {
                 c.BaseAddress = new Uri(configuration["endpoint"]);
                 c.DefaultRequestHeaders.Add("x-functions-key", configuration["functionAuth"]);
