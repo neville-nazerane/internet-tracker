@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <UserSecretsId>dotnet-InternetTracker.Worker-23259205-27A9-4AD7-838F-E11004BCED8B</UserSecretsId>
+    <UserSecretsId>internettracker</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
