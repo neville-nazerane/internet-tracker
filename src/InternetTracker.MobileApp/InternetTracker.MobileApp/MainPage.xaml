@@ -33,14 +33,14 @@
         
         <!--#endregion-->
 
-        <ActivityIndicator IsVisible="{Binding LoadControl.IsLoading}"
+        <ActivityIndicator IsVisible="{Binding Loader.IsLoading}"
                            IsRunning="True"
                            IsEnabled="True" 
                            Grid.Row="2" />
 
         <CollectionView ItemsSource="{Binding Logs}"
                         Grid.Row="2"
-                        IsVisible="{Binding Loadcontrol.IsLoading, 
+                        IsVisible="{Binding Loader.IsLoading, 
                                             Converter={StaticResource inverseBoolConverter}}">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="m:FailedLog">

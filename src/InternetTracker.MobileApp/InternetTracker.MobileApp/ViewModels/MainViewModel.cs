@@ -23,7 +23,7 @@ namespace InternetTracker.MobileApp.ViewModels
 
         public ICommand SubmitCmd { get; set; }
 
-        public LoadControl LoadControl { get; set; }
+        public LoadControl Loader { get; set; }
 
         public int Count => Logs?.Count() ?? 0;
 
@@ -43,11 +43,11 @@ namespace InternetTracker.MobileApp.ViewModels
 
             Start = DateTime.Now.Subtract(TimeSpan.FromDays(30));
             End = DateTime.Now;
-            LoadControl = new LoadControl();
+            Loader = new LoadControl();
             SubmitCmd = new Command(async () => await SubmitAsync());
         }
 
-        private Task SubmitAsync() => LoadControl.ExecuteAsync(async () => Logs = await _berryClient.GetLogsAsync(Start, End));
+        private Task SubmitAsync() => Loader.ExecuteAsync(async () => Logs = await _berryClient.GetLogsAsync(Start, End));
 
     }
 }
